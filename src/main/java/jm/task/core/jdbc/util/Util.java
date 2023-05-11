@@ -1,37 +1,24 @@
 package jm.task.core.jdbc.util;
 
-import com.mysql.fabric.jdbc.FabricMySQLDriver;
-
 import java.sql.*;
 
 public class Util {
-    public static final String NAME_USER = "root";
-    public static final String PASSWORD = "kp0kyc89ufsin";
-    public static final String URL = "jdbc:mysql://localhost:3306/mysql";
-    public static Connection connection;
 
-    static {
-        try {
-            Driver driver = new FabricMySQLDriver();
-            DriverManager.registerDriver(driver);
-            connection = DriverManager.getConnection(URL, NAME_USER, PASSWORD);
-
-            if (!connection.isClosed()) {
-                System.out.println("Соединение с базой данных установлено");
-            }
-
-            //connection.close();
-            //if (connection.isClosed()) {
-            //    System.out.println("Соединение с базой данных закрыто");
-            //}
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new RuntimeException();
-        }
-    }
+    public static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
+    public static final String DB_USER = "root";
+    public static final String DB_PASSWORD = "kp0kyc89ufsin";
+    public static final String DB_URL = "jdbc:mysql://localhost:3306/mysql";
 
     public Connection getConnection() {
+    Connection connection = null;
+    try {
+        Class.forName(DB_DRIVER);
+        connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+        System.out.println("Подключение к базе данных - ОК");
+    } catch (ClassNotFoundException | SQLException e) {
+        e.printStackTrace();
+        System.out.println("Подключение к базе данных - не ОК");
+    }
         return connection;
     }
 
