@@ -8,15 +8,15 @@ import java.util.List;
 
 public interface UserService {
 
-    void createUsersTable() throws SQLException;
+    void createUsersTable(String nameTable) throws SQLException;
 
-    void dropUsersTable() throws SQLException;
+    void dropUsersTable(String nameTable) throws SQLException;
 
-    void saveUser(String name, String lastName, byte age) throws SQLException;
+    void saveUser(String nameTable, String name, String lastName, byte age) throws SQLException;
 
-    void removeUserById(long id) throws SQLException;
+    void removeUserById(long id, String nameTable) throws SQLException;
 
-    List<User> getAllUsers();
+    List<User> getAllUsers(String nameTable);
 
-    void cleanUsersTable() throws SQLException;
+    void cleanUsersTable(String nameTable) throws SQLException;
 }

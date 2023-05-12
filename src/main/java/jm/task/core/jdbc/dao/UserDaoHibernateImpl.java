@@ -11,32 +11,32 @@ public class UserDaoHibernateImpl implements UserDao {
 
 
     @Override
-    public void createUsersTable() {
+    public void createUsersTable(String nameTable) {
 
     }
 
     @Override
-    public void dropUsersTable() {
+    public void dropUsersTable(String nameTable) {
 
     }
 
     @Override
-    public void saveUser(String name, String lastName, byte age) {
+    public void saveUser(String nameTable, String name, String lastName, byte age) {
 
     }
 
     @Override
-    public void removeUserById(long id) {
+    public void removeUserById(long id, String nameTable) {
 
     }
 
     @Override
-    public List<User> getAllUsers() {
+    public List<User> getAllUsers(String nameTable) {
         return null;
     }
 
     @Override
-    public void cleanUsersTable() {
+    public void cleanUsersTable(String nameTable) {
 
     }
 }

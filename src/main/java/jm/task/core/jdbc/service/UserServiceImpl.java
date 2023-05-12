@@ -16,38 +16,38 @@ public class UserServiceImpl implements UserService {
     }
 
 
-    public void createUsersTable() throws SQLException {
+    public void createUsersTable(String nameTable) throws SQLException {
 
-        userDao.createUsersTable();
-
-    }
-
-    public void dropUsersTable() throws SQLException {
-
-        userDao.dropUsersTable();
+        userDao.createUsersTable(nameTable);
 
     }
 
-    public void saveUser(String name, String lastName, byte age) throws SQLException {
+    public void dropUsersTable(String nameTable) throws SQLException {
 
-        userDao.saveUser(name, lastName, age);
-
-    }
-
-    public void removeUserById(long id) throws SQLException {
-
-        userDao.removeUserById(id);
+        userDao.dropUsersTable(nameTable);
 
     }
 
-    public List<User> getAllUsers() {
+    public void saveUser(String nameTable, String name, String lastName, byte age) throws SQLException {
 
-        return userDao.getAllUsers();
+        userDao.saveUser(nameTable ,name, lastName, age);
+
     }
 
-    public void cleanUsersTable() throws SQLException {
+    public void removeUserById(long id, String nameTable) throws SQLException {
 
-        userDao.cleanUsersTable();
+        userDao.removeUserById(id, nameTable);
+
+    }
+
+    public List<User> getAllUsers(String nameTable) {
+
+        return userDao.getAllUsers(nameTable);
+    }
+
+    public void cleanUsersTable(String nameTable) throws SQLException {
+
+        userDao.cleanUsersTable(nameTable);
 
     }
 }
