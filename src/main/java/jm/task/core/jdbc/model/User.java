@@ -1,7 +1,5 @@
 package jm.task.core.jdbc.model;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
