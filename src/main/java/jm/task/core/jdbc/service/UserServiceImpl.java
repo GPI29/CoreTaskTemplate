@@ -1,6 +1,7 @@
 package jm.task.core.jdbc.service;
 
 import jm.task.core.jdbc.dao.UserDao;
+import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.model.User;
 
@@ -12,7 +13,7 @@ public class UserServiceImpl implements UserService {
     private final UserDao userDao;
 
     public UserServiceImpl() {
-        userDao = new UserDaoJDBCImpl();
+        userDao = new UserDaoHibernateImpl();
     }
 
 
@@ -28,21 +29,21 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    public void saveUser(String nameTable, String name, String lastName, byte age) throws SQLException {
+    public void saveUser(String name, String lastName, byte age) throws SQLException {
 
-        userDao.saveUser(nameTable ,name, lastName, age);
-
-    }
-
-    public void removeUserById(long id, String nameTable) throws SQLException {
-
-        userDao.removeUserById(id, nameTable);
+        userDao.saveUser(name, lastName, age);
 
     }
 
-    public List<User> getAllUsers(String nameTable) {
+    public void removeUserById(long id) throws SQLException {
 
-        return userDao.getAllUsers(nameTable);
+        userDao.removeUserById(id);
+
+    }
+
+    public List<User> getAllUsers() {
+
+        return userDao.getAllUsers();
     }
 
     public void cleanUsersTable(String nameTable) throws SQLException {

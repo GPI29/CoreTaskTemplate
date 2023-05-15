@@ -1,21 +1,26 @@
 package jm.task.core.jdbc.model;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jdk.nashorn.internal.objects.annotations.Getter;
+import jdk.nashorn.internal.objects.annotations.Setter;
 
-@Table
-public class User {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "test.user")
+public class User implements Serializable {
     @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column
+    @Column (name ="name")
     private String name;
 
-    @Column
+    @Column (name ="lastname")
     private String lastName;
 
-    @Column
+    @Column (name ="age")
     private Byte age;
 
     public User() {
@@ -61,10 +66,21 @@ public class User {
     }
 
 
+//    @Override
+//    public String toString() {
+//        return getClass().getSimpleName() + "{id:" + id
+//                + ", username: " + name
+//                + ", age: " + age + "}";
+//    }
+
+
     @Override
     public String toString() {
-        return getClass().getSimpleName() + "{id:" + id
-                + ", username: " + name
-                + ", age: " + age + "}";
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
