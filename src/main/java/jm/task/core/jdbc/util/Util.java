@@ -3,7 +3,6 @@ package jm.task.core.jdbc.util;
 import jm.task.core.jdbc.model.User;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
-import java.sql.*;
 import java.util.Properties;
 
 public class Util {
