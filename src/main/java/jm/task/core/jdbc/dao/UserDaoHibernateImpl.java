@@ -8,12 +8,9 @@ import java.util.List;
 public class UserDaoHibernateImpl implements UserDao {
 private SessionFactory sessionFactory;
 
-
     public UserDaoHibernateImpl() {
         sessionFactory = Util.getGetSessionFactory();
-
     }
-
 
     @Override
     public void createUsersTable(String nameTable) {
